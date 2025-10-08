@@ -2,6 +2,11 @@
 
 Model Context Protocol (MCP) server that connects to GitHub for lightweight triage and review support. It exposes tools to list repositories, search issues/PRs, label and close issues, and generate PR summaries using Gemini.
 
+Why this is resume‑ready:
+- Shows practical LLM tooling with real developer workflow impact (GitHub + MCP)
+- Demonstrates API integration, prompt design, and safe automation
+- Works in Claude Desktop and MCP Inspector; easy to demo live
+
 <p align="center">
   <img src="demo/demo.gif" alt="Demo" width="700" />
 </p>
@@ -61,25 +66,30 @@ Add to `%APPDATA%/Claude/claude_desktop_config.json`:
 Restart Claude Desktop and enable `github-triage-mcp` in the side panel.
 
 Screenshots:
-- Claude: MCP server enabled — `demo/mcpserverenabledinclaudeesktop.png`
-- Tool list in Claude — `demo/claudedesktoptoollist.png`
-- list_repos result — `demo/listallrepo.png`
-- summarize_pr output — `demo/prsummarize.png`
-- Issue actions — `demo/issues.png`
+
+![Claude: MCP server enabled](demo/mcpserverenabledinclaudeesktop.png)
+
+![Claude: tool list](demo/claudedesktoptoollist.png)
+
+![Inspector/Claude: list_repos result](demo/listallrepo.png)
+
+![Inspector/Claude: summarize_pr output](demo/prsummarize.png)
+
+![GitHub: issue labeled/closed](demo/issues.png)
 
 ## Example tool calls (Inspector or Claude)
 ```jsonc
 // search_issues
-{ "q": "repo:Kishor1291292/datawise_ai is:issue is:open", "perPage": 10 }
+{ "q": "repo:Kishor129129/datawise_ai is:issue is:open", "perPage": 10 }
 
 // label_issue
-{ "owner": "Kishor1291292", "repo": "datawise_ai", "number": 123, "labels": ["triage"] }
+{ "owner": "Kishor129129", "repo": "datawise_ai", "number": 123, "labels": ["triage"] }
 
 // close_issue
-{ "owner": "Kishor1291292", "repo": "datawise_ai", "number": 124 }
+{ "owner": "Kishor129129", "repo": "datawise_ai", "number": 124 }
 
 // summarize_pr
-{ "owner": "Kishor1291292", "repo": "datawise_ai", "number": 1 }
+{ "owner": "Kishor129129", "repo": "datawise_ai", "number": 1 }
 ```
 
 ## Security
